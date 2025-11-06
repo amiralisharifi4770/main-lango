@@ -1,0 +1,51 @@
+import 'package:flutter/material.dart';
+import 'package:lango/config/constants.dart';
+import 'package:lango/config/text_style.dart';
+
+class CustomButton extends StatelessWidget {
+  const CustomButton({
+    super.key,
+    this.title,
+    this.bgColor,
+    this.child,
+    this.onPressed,
+    this.textColor,
+    this.isPrimary = true,
+  });
+
+  final void Function()? onPressed;
+  final String? title;
+  final Widget? child;
+  final Color? bgColor;
+  final Color? textColor;
+  final bool? isPrimary;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ButtonStyle(
+        shape: WidgetStatePropertyAll(
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
+        ),
+        backgroundColor: WidgetStatePropertyAll(
+          bgColor ??
+              (isPrimary == true
+                  ? CustomColors.primary
+                  : CustomColors.forground),
+        ),
+      ),
+      child: Center(
+        child: title != null
+            ? Text(
+                title!,
+                style: CustomTextStyle.title(
+                  color: textColor ?? CustomColors.background,
+                  fontWeight: FontWeight.w900,
+                ),
+              )
+            : child,
+      ),
+    );
+  }
+}
