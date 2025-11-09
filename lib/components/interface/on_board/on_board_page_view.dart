@@ -28,6 +28,7 @@ class OnBoardPageView extends StatelessWidget {
           Row(
             children: [
               CustomButton(
+                width: 50,
                 title: 'Skip',
                 bgColor: CustomColors.muted,
                 textColor: CustomColors.forground,
@@ -47,14 +48,14 @@ class OnBoardPageView extends StatelessWidget {
           Spacer(),
           CustomButton(
             title: 'Get started',
-            bgColor: onPressed==null?CustomColors.forground:null,
+            bgColor: onPressed == null ? CustomColors.forground : null,
             onPressed: () {
               if (onPressed == null) {
                 controller.pageController.nextPage(
                   duration: Duration(milliseconds: 300),
                   curve: Curves.linear,
                 );
-              }else{
+              } else {
                 onPressed!();
               }
             },
