@@ -7,12 +7,18 @@ import 'package:lango/config/constants.dart';
 import 'package:lango/config/edge.dart';
 import 'package:lango/config/text_style.dart';
 import 'package:lango/controllers/login_controller.dart';
+import 'package:lango/router/app_route.dart';
 import 'package:pinput/pinput.dart';
+import 'package:timer_count_down/timer_controller.dart';
+import 'package:timer_count_down/timer_count_down.dart';
 
 class Otp extends StatelessWidget {
   const Otp({super.key});
   @override
   Widget build(BuildContext context) {
+    final CountdownController timeController = new CountdownController(
+      autoStart: true,
+    );
     final LoginController controller = Get.find<LoginController>();
     return Center(
       child: Column(
@@ -65,9 +71,55 @@ class Otp extends StatelessWidget {
             ),
           ),
           CustomEdge.vSeprator,
-          Row(children: [
-            
-          ],),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+                decoration: BoxDecoration(
+                  color: CustomColors.primaryOverlay,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  children: [
+                    Icon(CupertinoIcons.clock, color: CustomColors.primary),
+                    CustomEdge.hSeprator,
+                    Countdown(
+                      seconds: 120,
+
+                      build: (BuildContext context, double time) => Text(
+                        time.toString(),
+                        style: CustomTextStyle.title(
+                          color: CustomColors.primary,
+                        ),
+                      ),
+                      interval: Duration(seconds: 1),
+                      onFinished: () {
+                        print('Timer is done!');
+                      },
+                    ),
+                  ],
+                ),
+              ),
+              ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: WidgetStateProperty.all<Color>(
+                    CustomColors.primaryOverlay,
+                  ),
+                ),
+                onPressed: () {},
+                child: Row(
+                  children: [
+                    Text(
+                      'Send again',
+                      style: CustomTextStyle.title(color: CustomColors.primary),
+                    ),
+                    Icon(Icons.refresh, color: CustomColors.primary),
+                  ],
+                ),
+              ),
+            ],
+          ),
           Spacer(flex: 2),
           CustomButton(
             title: 'Continue',

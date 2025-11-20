@@ -13,7 +13,7 @@ class LoginController extends GetxController {
   }
 
   void otp() {
-    state.value = LoginState.getPhoneNumber;
+    state.value = LoginState.register;
     update();
   }
 }

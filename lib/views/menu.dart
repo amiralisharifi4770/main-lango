@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:lango/config/constants.dart';
 import 'package:lango/controllers/menu_controller.dart';
 import 'package:lango/views/home.dart';
+import 'package:lango/views/map/map.dart';
 
 class MenuView extends GetView<CustomMenuController> {
   const MenuView({super.key});
@@ -18,7 +19,7 @@ class MenuView extends GetView<CustomMenuController> {
               index: controller.currentIndex.value,
               children: [
                 HomeView(),
-                Container(child: Center(child: Text('Tv'))),
+                MapView(),
                 Container(child: Center(child: Text('category'))),
                 Container(child: Center(child: Text('message'))),
                 Container(child: Center(child: Text('library'))),

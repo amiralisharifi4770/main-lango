@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
 
-class CustomEdge{
-  static const vSeprator=SizedBox(height: 10);
-  static const vSeprator2x=SizedBox(height: 20);
+class CustomEdge {
+  static const vSeprator = SizedBox(height: 10);
+  static const vSeprator2x = SizedBox(height: 20);
 
-  static const EdgeInsets regular=EdgeInsets.all(8);
-  static const EdgeInsets extraLarge=EdgeInsets.all(24);
+  static const hSeprator = SizedBox(width: 10);
+  static const hSeprator2x = SizedBox(width: 20);
+
+  static const EdgeInsets regular = EdgeInsets.all(8);
+  static const EdgeInsets extraLarge = EdgeInsets.all(24);
 }

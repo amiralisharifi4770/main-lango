@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lango/components/button/button.dart';
@@ -7,9 +8,10 @@ import 'package:lango/config/constants.dart';
 import 'package:lango/config/edge.dart';
 import 'package:lango/config/text_style.dart';
 import 'package:lango/controllers/login_controller.dart';
+import 'package:lango/router/app_route.dart';
 
-class GetPhoneNumber extends StatelessWidget {
-  const GetPhoneNumber({super.key});
+class Register extends StatelessWidget {
+  const Register({super.key});
   @override
   Widget build(BuildContext context) {
     final LoginController controller = Get.find<LoginController>();
@@ -22,7 +24,7 @@ class GetPhoneNumber extends StatelessWidget {
           CustomEdge.vSeprator2x,
           CustomEdge.vSeprator2x,
           Text(
-            'Login in to Lango!',
+            'Registeration',
             style: CustomTextStyle.title(
               fontWeight: FontWeight.w900,
               fontSize: 30,
@@ -30,21 +32,21 @@ class GetPhoneNumber extends StatelessWidget {
           ),
           CustomEdge.vSeprator2x,
           Text(
-            'Please enter your phone number',
+            'Please fill yourinfoation to register',
+
             style: CustomTextStyle.title(color: CustomColors.mutedForground),
           ),
-          Spacer(),
+          CustomEdge.vSeprator,
           CustomTextField(
-            lable: 'Phone Number',
-            suffixIcon: Icon(CupertinoIcons.phone),
-            keyboardType: TextInputType.phone,
+            lable: 'First name',
+            suffixIcon: Icon(CupertinoIcons.person),
           ),
-          Spacer(flex: 2),
 
+          Spacer(flex: 2),
           CustomButton(
-            title: 'Login',
-            onPressed: controller.login,
-            // onPressed: () => Get.offNamed(AppRoutes.menu),
+            title: 'Continue',
+            // onPressed: controller.login,
+            onPressed: () => Get.offNamed(AppRoutes.menu),
           ),
         ],
       ),

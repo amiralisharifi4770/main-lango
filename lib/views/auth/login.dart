@@ -6,6 +6,7 @@ import 'package:lango/components/button/button.dart';
 import 'package:lango/components/input/text_field.dart';
 import 'package:lango/components/interface/auth/get_phone.dart';
 import 'package:lango/components/interface/auth/otp.dart';
+import 'package:lango/components/interface/auth/register.dart';
 import 'package:lango/config/constants.dart';
 import 'package:lango/config/edge.dart';
 import 'package:lango/config/text_style.dart';
@@ -23,6 +24,8 @@ class LoginView extends GetView<LoginController> {
           padding: CustomEdge.extraLarge,
           child: controller.state.value == LoginState.getPhoneNumber
               ? GetPhoneNumber()
+              : controller.state.value == LoginState.register
+              ? Register()
               : Otp(),
         ),
       ),
